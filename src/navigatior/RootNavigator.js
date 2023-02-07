@@ -211,7 +211,7 @@ function Navigator(props) {
     console.log('mainCat====================================');
     console.log(res);
     console.log('mainCat====================================');
-    if (res.length > 0) {
+    if (res && res.length > 0) {
         let _tmpCategoriesChild = [];
         let _tmpCategoriesParent = [];
         let i, j;
@@ -535,9 +535,9 @@ function Navigator(props) {
 }, []);
 
   useEffect(() => {
-    createNotificationListeners();
+    // createNotificationListeners();
     onGetHostApi();
-    onCheckPermission();
+    // onCheckPermission();
     onGetSettings();
   }, []);
 

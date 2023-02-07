@@ -119,14 +119,17 @@ export class RootTab extends React.Component {
   render() {
     return (
       <TabMain.Navigator
+
         initialRouteName={'Home'}
         headerMode={'none'}
-        screenOptions={({ route }) => ({
+
+        screenOptions={ ({ route }) => ({
+
           tabBarIcon: ({ focused, color, size }) => {
             let iconName = 'home';
             switch (route.name) {
               case 'Service':
-                iconName = 'spa';
+                iconName = 'shopping-bag';
                 break;
               case 'News':
                 iconName = 'newspaper';
@@ -135,7 +138,7 @@ export class RootTab extends React.Component {
                 iconName = 'user-alt';
                 break;
             }
-            return <Icon name={iconName} size={Devices.fS(22)} color={color} type={focused ? "regular" : 'light'} />
+            return <Icon name={iconName} style={[{position: 'absolute'}]} size={Devices.fS(24)} color={color} type={focused ? "regular" : 'light'} />
           },
           tabBarLabel: ({ focused, color, size }) => {
             let title = 'home';
@@ -150,18 +153,29 @@ export class RootTab extends React.Component {
                 title = 'account';
                 break;
             }
-            if(!focused){
-              return <CText style={[cStyles.txt_body_meta_item, { fontSize: Devices.fS(10) }, !focused && { color }]} i18nKey={title} />
-            }
-            return <CText style={[cStyles.txt_body_meta_item, { fontSize: Devices.fS(10) }, focused && { color }]} i18nKey={title} />
+            return <CText style={[  {position: 'absolute', color:'#fff', top: Devices.sH(6.2), fontSize: Devices.fS(9),  }, focused && { color:'#fff' }]} i18nKey={ title} />
+            // if(!focused){
+            //   return <CText style={[cStyles.txt_body_meta_item, { fontSize: Devices.fS(10) }, !focused && { color }]} i18nKey={title} />
+            // }
+            // return <CText style={[cStyles.txt_body_meta_item, { fontSize: Devices.fS(10) }, focused && { color }]} i18nKey={title} />
           },
           // tabBarVisible : false,
         })}
         tabBarOptions={{
-          activeTintColor: Colors.WHITE_COLOR,
-          inactiveTintColor: Colors.WHITE_COLOR,
-          activeBackgroundColor:'#146B1E',
-          inactiveBackgroundColor:'#188124',
+          // activeTintColor: Colors.WHITE_COLOR,
+          // inactiveTintColor: Colors.WHITE_COLOR,
+          // activeBackgroundColor:'#146B1E',
+          // inactiveBackgroundColor:'#188124',
+          activeTintColor: '#fff',
+          inactiveTintColor: '#fff',
+          
+          style: {  flexDirection: 'row', height: Devices.sH('8%'), backgroundColor: 'rgba(24, 129, 36, 0.9)', borderTopLeftRadius:30, borderTopRightRadius:30,   shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+          elevation: 5,}
         }}
       >
         <TabMain.Screen name={"Home"} component={HomeScreen} />

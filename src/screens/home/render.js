@@ -206,6 +206,7 @@ export const ViewHome = ({
     onPressOverview: () => { },
     onUpdateDetails: () => { },
     onUpdateEntries: () => { },
+    onPressLogoBack: () => { },
   }
 }) => {
   // const [entries, setEntries] = useState([]); 
@@ -240,7 +241,7 @@ export const ViewHome = ({
 
     return () =>
       BackHandler.removeEventListener("hardwareBackPress", backAction);
-  }, [state._about_author]);
+  }, [ state._about_author ]);
   
   
   return (
@@ -296,8 +297,16 @@ export const ViewHome = ({
             onPressRight_1={onFunction.onPressCart}
             // onPressRight_2={onFunction.onFocusSearch}
           />
-          <Image source={Assets.endless_love} style={[{width: 85, height: 75, fill: Colors.WHITE_COLOR, left:22}]}>
-          </Image>
+          <View style={[cStyles.row,cStyles.ml_10,{alignItems: 'flex-end'} ]}>
+            {state._about_author > 1  ?
+            <Pressable onPress={onFunction.onPressLogoBack}>
+              <Icon name={'angle-left'} size={Devices.fS(22)} color={'white'} type={ "regular" } />
+            </Pressable>
+            :
+            <></>}
+            <Image source={Assets.endless_love} style={[{width: 85, height: 75, fill: Colors.WHITE_COLOR, left:22}]}>
+            </Image>
+          </View>
         </ImageBackground> 
       </View>
       { state?._about_author >1 ? 

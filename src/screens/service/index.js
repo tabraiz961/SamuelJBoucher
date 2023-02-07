@@ -112,22 +112,24 @@ class Service extends React.Component {
     console.log(this.props);
     console.log('cat====================================');
     let params = {};
-    if (category && category.categoriesProduct && category.categoriesProduct.length > 0) {
-      let i, routes = [];
-      routes = category.categoriesProduct;
-      for (i = 0; i < category.categoriesProduct.length; i++) {
-        routes[i].index = i + 1;
-        routes[i].key = i + 1;
-        routes[i].category = category.categoriesProduct[i].id;
-        routes[i].products = [];
-        routes[i].page = 1;
+    if (category && category.categoriesProduct ) {
+      if(category.categoriesProduct.length > 0){
+        let i, routes = [];
+        routes = category.categoriesProduct;
+        for (i = 0; i < category.categoriesProduct.length; i++) {
+          routes[i].index = i + 1;
+          routes[i].key = i + 1;
+          routes[i].category = category.categoriesProduct[i].id;
+          routes[i].products = [];
+          routes[i].page = 1;
+        }
+        params = {
+          page: 1,
+          category: category.categoriesProduct[0].id,
+          per_page: this._limit
+        };
+        this._getProductsByCategories(params, Keys.REFRESH, routes);
       }
-      params = {
-        page: 1,
-        category: category.categoriesProduct[0].id,
-        per_page: this._limit
-      };
-      this._getProductsByCategories(params, Keys.REFRESH, routes);
     }
   }
 

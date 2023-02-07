@@ -159,19 +159,23 @@ class CDrawer extends React.Component {
     return (
       <Container>
         <ScrollView style={styles.con_content} showsVerticalScrollIndicator={false}>
-          <View>
-            <View style={styles.con_title_group}>
-              <CText style={cStyles.txt_title_group} i18nKey={'categories'} upperCase />
-            </View>
-            <Accordion style={styles.con_accordion}
-              expanded={[0]}
-              dataArray={this.state._arrAccordionCate}
-              renderHeader={this._renderHeaderAccordionCate}
-              renderContent={this._renderContentAccordionCate}
-            />
-          </View>
+          {
+            this.state._arrAccordionCate.length ? 
+            <View>
+              <View style={styles.con_title_group}>
+                <CText style={cStyles.txt_title_group} i18nKey={'categories'} upperCase />
+              </View>
+              <Accordion style={styles.con_accordion}
+                expanded={[0]}
+                dataArray={this.state._arrAccordionCate}
+                renderHeader={this._renderHeaderAccordionCate}
+                renderContent={this._renderContentAccordionCate}
+              />
+            </View> 
+            : <></>
+          }
 
-          <View style={styles.con_group_2}>
+          <View style={styles.con_group}>
             <View style={styles.con_title_group}>
               <CText style={cStyles.txt_title_group} i18nKey={'help_info'} upperCase />
             </View>
