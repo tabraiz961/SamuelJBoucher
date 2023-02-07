@@ -124,13 +124,13 @@ const RenderProduct = (data, onPressViewPdf, orderData) => {
                     size={Devices.fS(20)}
                     type={"regular"} />
                 </Button>
-                <Button transparent onPress={()=>{fileAction(data.product_id)}}>
+                {/* <Button transparent onPress={()=>{fileAction(data.product_id)}}>
                   <Icon
                     name={'download'}
                     color={Colors.BLACK_COLOR}
                     size={Devices.fS(20)}
                     type={"regular"} />
-                </Button>
+                </Button> */}
               </View>}
               <View style={[{flex:.5}, cStyles.row, cStyles.row_justify_end, cStyles.row_align_end]} >
                 <CText  style={[styles.txt_group_right]}>{symbol+" "+price}</CText>
