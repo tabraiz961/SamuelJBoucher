@@ -68,7 +68,7 @@ local.properties
 !/android/README.md
 
 # Node
-node_modules
+/node_modules
 *.log
 .nvm
 package-lock.json
